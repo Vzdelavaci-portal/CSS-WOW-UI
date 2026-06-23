@@ -26,16 +26,6 @@ GitHub Pages:
 
 ---
 
-## 📸 Preview
-
-Add a screenshot here:
-
-```text
-screenshot.png
-```
-
----
-
 ## 🛠 Technologies
 
 - HTML5
@@ -146,16 +136,6 @@ GitHub Pages:
 - Animace po kliknutí
 - Responzivní design
 - Pouze HTML, CSS a JavaScript
-
----
-
-## 📸 Náhled
-
-Sem vlož screenshot projektu:
-
-```text
-screenshot.png
-```
 
 ---
 
