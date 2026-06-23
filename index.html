@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>CSS WOW UI</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, #7c3aed33, transparent 35%),
+        radial-gradient(circle at top right, #06b6d433, transparent 35%),
+        linear-gradient(135deg, #020617, #0f172a);
+      color: #e5e7eb;
+    }
+
+    header {
+      padding: 70px 20px 40px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 16px;
+      border: 1px solid #38bdf8;
+      border-radius: 999px;
+      color: #67e8f9;
+      background: #0f172acc;
+      box-shadow: 0 0 25px #06b6d455;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 8vw, 82px);
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #22d3ee, #a78bfa, #f472b6);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 18px;
+    }
+
+    .subtitle {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #cbd5e1;
+      font-size: 19px;
+      line-height: 1.7;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+    }
+
+    .stat {
+      min-width: 140px;
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      backdrop-filter: blur(14px);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 28px;
+      color: #67e8f9;
+    }
+
+    .stat span {
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    main {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+      padding-bottom: 60px;
+    }
+
+    .section-title {
+      margin: 40px 0 20px;
+      font-size: 28px;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .filter {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      color: #e5e7eb;
+      font-size: 14px;
+    }
+
+    .filter.active {
+      color: #020617;
+      background: linear-gradient(90deg, #22d3ee, #a78bfa);
+      font-weight: bold;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      min-height: 300px;
+      padding: 24px;
+      border-radius: 26px;
+      background: rgba(15, 23, 42, 0.78);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+      text-decoration: none;
+      color: inherit;
+      transition: 0.35s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: #22d3ee;
+      box-shadow: 0 0 50px #06b6d455;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -80px;
+      background: conic-gradient(from 180deg, transparent, #22d3ee55, #a78bfa55, transparent);
+      opacity: 0;
+      transition: 0.35s ease;
+      z-index: 0;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+      animation: rotate 4s linear infinite;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .icon {
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      border-radius: 20px;
+      font-size: 32px;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: inset 0 0 25px #ffffff0a;
+    }
+
+    .card h2 {
+      margin-bottom: 12px;
+      font-size: 24px;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(30, 41, 59, 0.9);
+      color: #93c5fd;
+      font-size: 12px;
+    }
+
+    .open {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: bold;
+      color: #67e8f9;
+    }
+
+    .coming-soon {
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .coming-soon .open {
+      color: #94a3b8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      color: #94a3b8;
+      border-top: 1px solid rgba(148, 163, 184, 0.15);
+    }
+
+    @keyframes rotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding-top: 45px;
+      }
+
+      .card {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="badge">CSS Components • Animations • UI Effects</div>
+
+    <h1>CSS WOW UI</h1>
+
+    <p class="subtitle">
+      Moderní galerie CSS komponent, animací a efektů.
+      Tlačítka, loadery, formuláře, karty, menu a další UI prvky s wow efektem.
+    </p>
+
+    <div class="stats">
+      <div class="stat">
+        <strong>100+</strong>
+        <span>nápadů</span>
+      </div>
+
+      <div class="stat">
+        <strong>1</strong>
+        <span>hotový projekt</span>
+      </div>
+
+      <div class="stat">
+        <strong>HTML</strong>
+        <span>CSS / JS</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h2 class="section-title">Komponenty</h2>
+
+    <div class="filters">
+      <div class="filter active">Vše</div>
+      <div class="filter">Buttons</div>
+      <div class="filter">Loaders</div>
+      <div class="filter">Forms</div>
+      <div class="filter">Cards</div>
+      <div class="filter">Navigation</div>
+    </div>
+
+    <section class="grid">
+
+      <a href="1-NeonButton/index.html" class="card">
+        <div class="card-content">
+          <div class="icon">⚡</div>
+
+          <h2>Neon Button</h2>
+
+          <p>
+            Svítící neonové tlačítko s glow efektem, animovaným okrajem
+            a moderním cyberpunk vzhledem.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Button</span>
+            <span class="tag">Neon</span>
+            <span class="tag">Hover</span>
+            <span class="tag">CSS</span>
+          </div>
+
+          <span class="open">Open Demo →</span>
+        </div>
+      </a>
+
+      <a href="#" class="card coming-soon">
+        <div class="card-content">
+          <div class="icon">🧊</div>
+
+          <h2>Glass Button</h2>
+
+          <p>
+            Tlačítko ve stylu glassmorphism s průhledností, blur efektem
+            a jemným světelným odleskem.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Button</span>
+            <span class="tag">Glass</span>
+            <span class="tag">Blur</span>
+          </div>
+
+          <span class="open">Coming Soon</span>
+        </div>
+      </a>
+
+      <a href="#" class="card coming-soon">
+        <div class="card-content">
+          <div class="icon">💧</div>
+
+          <h2>Liquid Button</h2>
+
+          <p>
+            Efektní tlačítko s tekutou animací, která vytváří dojem pohybu
+            kapaliny uvnitř prvku.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Button</span>
+            <span class="tag">Liquid</span>
+            <span class="tag">Animation</span>
+          </div>
+
+          <span class="open">Coming Soon</span>
+        </div>
+      </a>
+
+      <a href="#" class="card coming-soon">
+        <div class="card-content">
+          <div class="icon">⏳</div>
+
+          <h2>DNA Loader</h2>
+
+          <p>
+            Loading animace inspirovaná DNA spirálou. Vhodné pro moderní
+            technologické a sci-fi weby.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Loader</span>
+            <span class="tag">Animation</span>
+            <span class="tag">CSS</span>
+          </div>
+
+          <span class="open">Coming Soon</span>
+        </div>
+      </a>
+
+      <a href="#" class="card coming-soon">
+        <div class="card-content">
+          <div class="icon">💎</div>
+
+          <h2>Glass Card</h2>
+
+          <p>
+            Moderní karta s průhledným pozadím, rozmazáním a elegantním
+            hover efektem.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Card</span>
+            <span class="tag">Glass</span>
+            <span class="tag">UI</span>
+          </div>
+
+          <span class="open">Coming Soon</span>
+        </div>
+      </a>
+
+      <a href="#" class="card coming-soon">
+        <div class="card-content">
+          <div class="icon">🍔</div>
+
+          <h2>Morphing Menu</h2>
+
+          <p>
+            Animované menu, které se plynule mění z hamburger ikony
+            na otevřenou navigaci.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Menu</span>
+            <span class="tag">Navigation</span>
+            <span class="tag">Animation</span>
+          </div>
+
+          <span class="open">Coming Soon</span>
+        </div>
+      </a>
+
+    </section>
+  </main>
+
+  <footer>
+    CSS WOW UI by Štefan Tusjak • Modern CSS components and effects
+  </footer>
+
+</body>
+</html>
