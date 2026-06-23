@@ -21,30 +21,6 @@ This repository contains small standalone projects focused on beautiful user int
 - Dashboards
 - UI Experiments
 
-## Project List
-
-### Buttons
-
-- [ ] Neon Button
-- [ ] Glass Button
-- [ ] Liquid Button
-- [ ] Cyberpunk Button
-- [ ] Gradient Button
-
-### Loaders
-
-- [ ] Spinner Loader
-- [ ] Dot Loader
-- [ ] DNA Loader
-- [ ] Rocket Loader
-
-### Cards
-
-- [ ] Glass Card
-- [ ] 3D Card
-- [ ] Profile Card
-
-More projects coming soon.
 
 ## Live Demo
 
@@ -56,4 +32,66 @@ GitHub Pages:
 Štefan Tusjak
 
 Website:
+https://stefantusjak.cz
+
+---
+
+# CSS WOW UI
+
+Sbírka moderních CSS komponent, animací a interaktivních UI efektů.
+
+Repozitář obsahuje malé samostatné projekty zaměřené na atraktivní prvky uživatelského rozhraní vytvořené pomocí:
+
+- HTML
+- CSS
+- JavaScript (pokud je potřeba)
+
+## Kategorie
+
+- Tlačítka
+- Loading animace
+- Progress bary
+- Formuláře
+- Inputy
+- Karty
+- Menu
+- Notifikace
+- Dashboardy
+- UI experimenty
+
+## Seznam projektů
+
+### Tlačítka
+
+- [ ] Neon Button
+- [ ] Glass Button
+- [ ] Liquid Button
+- [ ] Cyberpunk Button
+- [ ] Gradient Button
+
+### Loadery
+
+- [ ] Spinner Loader
+- [ ] Dot Loader
+- [ ] DNA Loader
+- [ ] Rocket Loader
+
+### Karty
+
+- [ ] Glass Card
+- [ ] 3D Card
+- [ ] Profile Card
+
+Další projekty budou postupně přibývat.
+
+## Online ukázka
+
+GitHub Pages:
+(Doplň svůj odkaz)
+
+## Autor
+
+Štefan Tusjak
+
+Web:
 https://stefantusjak.cz
