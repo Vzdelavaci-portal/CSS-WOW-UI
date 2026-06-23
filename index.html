@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,8 +23,32 @@
       color: #e5e7eb;
     }
 
+    .language-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .language-switch button {
+      padding: 9px 14px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      border-radius: 999px;
+      cursor: pointer;
+      background: rgba(15, 23, 42, 0.85);
+      color: #e5e7eb;
+      font-weight: bold;
+    }
+
+    .language-switch button.active {
+      background: linear-gradient(90deg, #22d3ee, #a78bfa);
+      color: #020617;
+    }
+
     header {
-      padding: 70px 20px 40px;
+      padding: 80px 20px 40px;
       text-align: center;
     }
 
@@ -50,7 +74,7 @@
     }
 
     .subtitle {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
       color: #cbd5e1;
       font-size: 19px;
@@ -110,6 +134,13 @@
       border: 1px solid rgba(148, 163, 184, 0.25);
       color: #e5e7eb;
       font-size: 14px;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .filter:hover {
+      border-color: #22d3ee;
+      color: #67e8f9;
     }
 
     .filter.active {
@@ -136,6 +167,10 @@
       text-decoration: none;
       color: inherit;
       transition: 0.35s ease;
+    }
+
+    .card.hide {
+      display: none;
     }
 
     .card:hover {
@@ -234,6 +269,12 @@
     }
 
     @media (max-width: 600px) {
+      .language-switch {
+        position: static;
+        justify-content: center;
+        padding-top: 18px;
+      }
+
       header {
         padding-top: 45px;
       }
@@ -247,25 +288,33 @@
 
 <body>
 
+  <div class="language-switch">
+    <button class="lang-btn active" data-lang="en">🇬🇧 EN</button>
+    <button class="lang-btn" data-lang="cz">🇨🇿 CZ</button>
+  </div>
+
   <header>
-    <div class="badge">CSS Components • Animations • UI Effects</div>
+    <div class="badge" data-en="CSS Components • Animations • UI Effects" data-cz="CSS komponenty • Animace • UI efekty">
+      CSS Components • Animations • UI Effects
+    </div>
 
     <h1>CSS WOW UI</h1>
 
-    <p class="subtitle">
-      Moderní galerie CSS komponent, animací a efektů.
-      Tlačítka, loadery, formuláře, karty, menu a další UI prvky s wow efektem.
+    <p class="subtitle"
+       data-en="A modern gallery of CSS components, animations and visual effects. Buttons, loaders, forms, cards, menus and other UI elements with a wow effect."
+       data-cz="Moderní galerie CSS komponent, animací a efektů. Tlačítka, loadery, formuláře, karty, menu a další UI prvky s wow efektem.">
+      A modern gallery of CSS components, animations and visual effects. Buttons, loaders, forms, cards, menus and other UI elements with a wow effect.
     </p>
 
     <div class="stats">
       <div class="stat">
         <strong>100+</strong>
-        <span>nápadů</span>
+        <span data-en="ideas" data-cz="nápadů">ideas</span>
       </div>
 
       <div class="stat">
         <strong>1</strong>
-        <span>hotový projekt</span>
+        <span data-en="finished project" data-cz="hotový projekt">finished project</span>
       </div>
 
       <div class="stat">
@@ -276,28 +325,28 @@
   </header>
 
   <main>
-    <h2 class="section-title">Komponenty</h2>
+    <h2 class="section-title" data-en="Components" data-cz="Komponenty">Components</h2>
 
     <div class="filters">
-      <div class="filter active">Vše</div>
-      <div class="filter">Buttons</div>
-      <div class="filter">Loaders</div>
-      <div class="filter">Forms</div>
-      <div class="filter">Cards</div>
-      <div class="filter">Navigation</div>
+      <button class="filter active" data-filter="all" data-en="All" data-cz="Vše">All</button>
+      <button class="filter" data-filter="buttons">Buttons</button>
+      <button class="filter" data-filter="loaders">Loaders</button>
+      <button class="filter" data-filter="forms">Forms</button>
+      <button class="filter" data-filter="cards">Cards</button>
+      <button class="filter" data-filter="navigation">Navigation</button>
     </div>
 
     <section class="grid">
 
-      <a href="1-NeonButton/index.html" class="card">
+      <a href="1-NeonButton/index.html" class="card" data-category="buttons">
         <div class="card-content">
           <div class="icon">⚡</div>
 
           <h2>Neon Button</h2>
 
-          <p>
-            Svítící neonové tlačítko s glow efektem, animovaným okrajem
-            a moderním cyberpunk vzhledem.
+          <p data-en="A glowing neon button with a strong glow effect, animated border and modern cyberpunk style."
+             data-cz="Svítící neonové tlačítko s glow efektem, animovaným okrajem a moderním cyberpunk vzhledem.">
+            A glowing neon button with a strong glow effect, animated border and modern cyberpunk style.
           </p>
 
           <div class="tags">
@@ -307,19 +356,19 @@
             <span class="tag">CSS</span>
           </div>
 
-          <span class="open">Open Demo →</span>
+          <span class="open" data-en="Open Demo →" data-cz="Otevřít demo →">Open Demo →</span>
         </div>
       </a>
 
-      <a href="#" class="card coming-soon">
+      <a href="#" class="card coming-soon" data-category="buttons">
         <div class="card-content">
           <div class="icon">🧊</div>
 
           <h2>Glass Button</h2>
 
-          <p>
-            Tlačítko ve stylu glassmorphism s průhledností, blur efektem
-            a jemným světelným odleskem.
+          <p data-en="A glassmorphism button with transparency, blur effect and soft light reflection."
+             data-cz="Tlačítko ve stylu glassmorphism s průhledností, blur efektem a jemným světelným odleskem.">
+            A glassmorphism button with transparency, blur effect and soft light reflection.
           </p>
 
           <div class="tags">
@@ -328,19 +377,19 @@
             <span class="tag">Blur</span>
           </div>
 
-          <span class="open">Coming Soon</span>
+          <span class="open" data-en="Coming Soon" data-cz="Připravuje se">Coming Soon</span>
         </div>
       </a>
 
-      <a href="#" class="card coming-soon">
+      <a href="#" class="card coming-soon" data-category="buttons">
         <div class="card-content">
           <div class="icon">💧</div>
 
           <h2>Liquid Button</h2>
 
-          <p>
-            Efektní tlačítko s tekutou animací, která vytváří dojem pohybu
-            kapaliny uvnitř prvku.
+          <p data-en="An eye-catching button with a liquid animation that creates the feeling of moving fluid inside the element."
+             data-cz="Efektní tlačítko s tekutou animací, která vytváří dojem pohybu kapaliny uvnitř prvku.">
+            An eye-catching button with a liquid animation that creates the feeling of moving fluid inside the element.
           </p>
 
           <div class="tags">
@@ -349,19 +398,19 @@
             <span class="tag">Animation</span>
           </div>
 
-          <span class="open">Coming Soon</span>
+          <span class="open" data-en="Coming Soon" data-cz="Připravuje se">Coming Soon</span>
         </div>
       </a>
 
-      <a href="#" class="card coming-soon">
+      <a href="#" class="card coming-soon" data-category="loaders">
         <div class="card-content">
           <div class="icon">⏳</div>
 
           <h2>DNA Loader</h2>
 
-          <p>
-            Loading animace inspirovaná DNA spirálou. Vhodné pro moderní
-            technologické a sci-fi weby.
+          <p data-en="A loading animation inspired by a DNA spiral. Perfect for modern technology and sci-fi websites."
+             data-cz="Loading animace inspirovaná DNA spirálou. Vhodné pro moderní technologické a sci-fi weby.">
+            A loading animation inspired by a DNA spiral. Perfect for modern technology and sci-fi websites.
           </p>
 
           <div class="tags">
@@ -370,19 +419,19 @@
             <span class="tag">CSS</span>
           </div>
 
-          <span class="open">Coming Soon</span>
+          <span class="open" data-en="Coming Soon" data-cz="Připravuje se">Coming Soon</span>
         </div>
       </a>
 
-      <a href="#" class="card coming-soon">
+      <a href="#" class="card coming-soon" data-category="cards">
         <div class="card-content">
           <div class="icon">💎</div>
 
           <h2>Glass Card</h2>
 
-          <p>
-            Moderní karta s průhledným pozadím, rozmazáním a elegantním
-            hover efektem.
+          <p data-en="A modern transparent card with blur, depth and an elegant hover effect."
+             data-cz="Moderní karta s průhledným pozadím, rozmazáním a elegantním hover efektem.">
+            A modern transparent card with blur, depth and an elegant hover effect.
           </p>
 
           <div class="tags">
@@ -391,19 +440,19 @@
             <span class="tag">UI</span>
           </div>
 
-          <span class="open">Coming Soon</span>
+          <span class="open" data-en="Coming Soon" data-cz="Připravuje se">Coming Soon</span>
         </div>
       </a>
 
-      <a href="#" class="card coming-soon">
+      <a href="#" class="card coming-soon" data-category="navigation">
         <div class="card-content">
           <div class="icon">🍔</div>
 
           <h2>Morphing Menu</h2>
 
-          <p>
-            Animované menu, které se plynule mění z hamburger ikony
-            na otevřenou navigaci.
+          <p data-en="An animated menu that smoothly morphs from a hamburger icon into an open navigation panel."
+             data-cz="Animované menu, které se plynule mění z hamburger ikony na otevřenou navigaci.">
+            An animated menu that smoothly morphs from a hamburger icon into an open navigation panel.
           </p>
 
           <div class="tags">
@@ -412,16 +461,60 @@
             <span class="tag">Animation</span>
           </div>
 
-          <span class="open">Coming Soon</span>
+          <span class="open" data-en="Coming Soon" data-cz="Připravuje se">Coming Soon</span>
         </div>
       </a>
 
     </section>
   </main>
 
-  <footer>
+  <footer data-en="CSS WOW UI by Štefan Tusjak • Modern CSS components and effects"
+          data-cz="CSS WOW UI by Štefan Tusjak • Moderní CSS komponenty a efekty">
     CSS WOW UI by Štefan Tusjak • Modern CSS components and effects
   </footer>
+
+  <script>
+    const filterButtons = document.querySelectorAll(".filter");
+    const cards = document.querySelectorAll(".card");
+    const langButtons = document.querySelectorAll(".lang-btn");
+    const translatableElements = document.querySelectorAll("[data-en][data-cz]");
+
+    let currentLang = "en";
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const selectedFilter = button.dataset.filter;
+
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        cards.forEach(card => {
+          const category = card.dataset.category;
+
+          if (selectedFilter === "all" || selectedFilter === category) {
+            card.classList.remove("hide");
+          } else {
+            card.classList.add("hide");
+          }
+        });
+      });
+    });
+
+    langButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        currentLang = button.dataset.lang;
+
+        langButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        document.documentElement.lang = currentLang === "cz" ? "cs" : "en";
+
+        translatableElements.forEach(element => {
+          element.textContent = element.dataset[currentLang];
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
