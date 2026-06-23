@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Floating Label Input</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="page">
+    <section class="card">
+      <span class="badge">CSS WOW UI #2</span>
+
+      <h1>Floating Label Input</h1>
+      <p>
+        Modern form fields with smooth floating labels,
+        glow effects and clean validation states.
+      </p>
+
+      <form class="form">
+        <div class="input-group">
+          <input type="text" id="name" required />
+          <label for="name">Full Name</label>
+          <span class="icon">👤</span>
+        </div>
+
+        <div class="input-group">
+          <input type="email" id="email" required />
+          <label for="email">Email Address</label>
+          <span class="icon">✉️</span>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="password" required minlength="6" />
+          <label for="password">Password</label>
+          <span class="icon">🔒</span>
+        </div>
+
+        <button type="submit">Create Account</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
