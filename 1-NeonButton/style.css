@@ -1,0 +1,132 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#050816;
+    overflow:hidden;
+    font-family:Arial, sans-serif;
+}
+
+.container{
+    text-align:center;
+}
+
+h1{
+    color:white;
+    margin-bottom:50px;
+    font-size:3rem;
+    letter-spacing:3px;
+}
+
+.neon-btn{
+    position:relative;
+
+    padding:25px 60px;
+
+    font-size:1.5rem;
+    font-weight:bold;
+
+    color:#00ffff;
+    background:transparent;
+
+    border:2px solid #00ffff;
+
+    cursor:pointer;
+
+    text-transform:uppercase;
+    letter-spacing:4px;
+
+    transition:.3s;
+
+    overflow:hidden;
+
+    border-radius:15px;
+
+    box-shadow:
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        inset 0 0 10px #00ffff;
+}
+
+.neon-btn:hover{
+    color:#050816;
+
+    background:#00ffff;
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 0 20px #00ffff,
+        0 0 40px #00ffff,
+        0 0 80px #00ffff,
+        0 0 120px #00ffff;
+}
+
+.neon-btn::before{
+    content:"";
+
+    position:absolute;
+
+    top:-50%;
+    left:-50%;
+
+    width:50%;
+    height:200%;
+
+    background:linear-gradient(
+        transparent,
+        rgba(255,255,255,.9),
+        transparent
+    );
+
+    transform:rotate(25deg);
+
+    transition:.6s;
+}
+
+.neon-btn:hover::before{
+    left:150%;
+}
+
+.neon-btn::after{
+    content:"";
+
+    position:absolute;
+
+    inset:-4px;
+
+    border-radius:18px;
+
+    border:2px solid #00ffff;
+
+    opacity:.3;
+
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+        opacity:.5;
+    }
+
+    50%{
+        transform:scale(1.08);
+        opacity:0;
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:.5;
+    }
+
+}
