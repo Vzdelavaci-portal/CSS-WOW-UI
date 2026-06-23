@@ -59,31 +59,6 @@ Repozitář obsahuje malé samostatné projekty zaměřené na atraktivní prvky
 - Dashboardy
 - UI experimenty
 
-## Seznam projektů
-
-### Tlačítka
-
-- [ ] Neon Button
-- [ ] Glass Button
-- [ ] Liquid Button
-- [ ] Cyberpunk Button
-- [ ] Gradient Button
-
-### Loadery
-
-- [ ] Spinner Loader
-- [ ] Dot Loader
-- [ ] DNA Loader
-- [ ] Rocket Loader
-
-### Karty
-
-- [ ] Glass Card
-- [ ] 3D Card
-- [ ] Profile Card
-
-Další projekty budou postupně přibývat.
-
 ## Online ukázka
 
 GitHub Pages:
