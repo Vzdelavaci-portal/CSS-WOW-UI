@@ -1,0 +1,327 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+
+  font-family: Arial, sans-serif;
+
+  background:
+    radial-gradient(circle at top left, #22d3ee33, transparent 35%),
+    radial-gradient(circle at bottom right, #a855f733, transparent 35%),
+    linear-gradient(135deg, #020617, #0f172a);
+
+  color: #e5e7eb;
+  overflow-x: hidden;
+}
+
+.container {
+  width: min(1050px, 92%);
+  text-align: center;
+  padding: 55px 0;
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 8px 18px;
+
+  border-radius: 999px;
+
+  color: #67e8f9;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(103, 232, 249, 0.35);
+
+  font-size: 14px;
+  font-weight: bold;
+
+  box-shadow: 0 0 25px rgba(34, 211, 238, 0.18);
+}
+
+h1 {
+  margin-bottom: 15px;
+
+  font-size: clamp(40px, 8vw, 78px);
+  letter-spacing: 1px;
+
+  background: linear-gradient(90deg, #22d3ee, #a855f7, #f472b6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+p {
+  max-width: 680px;
+  margin: 0 auto 55px;
+
+  color: #94a3b8;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 28px;
+}
+
+.liquid-btn {
+  --main: #22d3ee;
+  --dark: #0891b2;
+  --light: #67e8f9;
+
+  position: relative;
+
+  height: 95px;
+  border: none;
+  border-radius: 26px;
+
+  overflow: hidden;
+  cursor: pointer;
+
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid color-mix(in srgb, var(--main), white 20%);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.35),
+    0 0 35px color-mix(in srgb, var(--main), transparent 70%);
+
+  isolation: isolate;
+  transition: 0.35s ease;
+}
+
+.liquid-btn span {
+  position: relative;
+  z-index: 5;
+
+  color: #ffffff;
+
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.liquid-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.22),
+      transparent 35%,
+      transparent 65%,
+      rgba(255, 255, 255, 0.08)
+    );
+
+  z-index: 4;
+  pointer-events: none;
+}
+
+.liquid-btn::after {
+  content: "";
+  position: absolute;
+  top: -55%;
+  left: -40%;
+
+  width: 80%;
+  height: 200%;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(255, 255, 255, 0.55),
+      transparent
+    );
+
+  transform: rotate(25deg);
+  z-index: 6;
+
+  opacity: 0;
+  transition: 0.5s ease;
+}
+
+.liquid-btn:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow:
+    0 28px 65px rgba(0, 0, 0, 0.45),
+    0 0 55px color-mix(in srgb, var(--main), transparent 45%);
+}
+
+.liquid-btn:hover::after {
+  left: 120%;
+  opacity: 1;
+}
+
+.liquid {
+  position: absolute;
+  left: -20%;
+  bottom: -75%;
+
+  width: 140%;
+  height: 105%;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--light),
+      var(--main),
+      var(--dark)
+    );
+
+  border-radius: 45% 45% 35% 35%;
+
+  z-index: 1;
+
+  animation: wave 4s linear infinite;
+  transition: 0.6s cubic-bezier(.2, .9, .3, 1.25);
+}
+
+.liquid::before,
+.liquid::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -34px;
+
+  width: 180%;
+  height: 70px;
+
+  transform: translateX(-50%);
+
+  background: rgba(15, 23, 42, 0.55);
+  border-radius: 45%;
+
+  animation: surface 5s linear infinite;
+}
+
+.liquid::after {
+  opacity: 0.45;
+  animation-duration: 7s;
+  animation-direction: reverse;
+}
+
+.liquid-btn:hover .liquid {
+  bottom: -12%;
+}
+
+.bubbles {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.bubbles i {
+  position: absolute;
+  bottom: -15px;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.8);
+
+  opacity: 0;
+  animation: bubble 2.8s infinite ease-in;
+}
+
+.bubbles i:nth-child(1) {
+  left: 22%;
+  animation-delay: 0.1s;
+}
+
+.bubbles i:nth-child(2) {
+  left: 42%;
+  width: 6px;
+  height: 6px;
+  animation-delay: 0.8s;
+}
+
+.bubbles i:nth-child(3) {
+  left: 61%;
+  animation-delay: 1.4s;
+}
+
+.bubbles i:nth-child(4) {
+  left: 78%;
+  width: 5px;
+  height: 5px;
+  animation-delay: 2s;
+}
+
+.liquid-btn.clicked {
+  animation: pop 0.35s ease;
+}
+
+.purple {
+  --main: #a855f7;
+  --dark: #7e22ce;
+  --light: #d8b4fe;
+}
+
+.pink {
+  --main: #f472b6;
+  --dark: #db2777;
+  --light: #fbcfe8;
+}
+
+.green {
+  --main: #22c55e;
+  --dark: #15803d;
+  --light: #86efac;
+}
+
+@keyframes wave {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes surface {
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+@keyframes bubble {
+  0% {
+    transform: translateY(0) scale(0.4);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: translateY(-95px) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes pop {
+  50% {
+    transform: scale(0.96);
+  }
+}
+
+@media (max-width: 560px) {
+  .buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .liquid-btn {
+    height: 88px;
+  }
+}
