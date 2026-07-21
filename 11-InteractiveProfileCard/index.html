@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Interactive Profile Card</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="page">
+
+    <span class="badge">CSS WOW UI #11</span>
+
+    <h1>Interactive Profile Card</h1>
+
+    <p class="intro">
+      A modern profile card with interactive tabs,
+      animated statistics and smooth UI effects.
+    </p>
+
+    <section class="card-scene">
+
+      <article class="profile-card" id="profileCard">
+
+        <div class="card-light" id="cardLight"></div>
+
+        <div class="cover">
+          <div class="cover-pattern"></div>
+
+          <span class="status">
+            <span class="status-dot"></span>
+            Online
+          </span>
+        </div>
+
+        <div class="profile-header">
+
+          <div class="avatar">
+            <span>ST</span>
+          </div>
+
+          <h2>Stefan Tusjak</h2>
+
+          <p class="role">
+            Frontend Developer & Creator
+          </p>
+
+          <p class="location">
+            📍 Czech Republic
+          </p>
+
+        </div>
+
+        <div class="stats">
+
+          <div class="stat">
+            <strong data-target="42">0</strong>
+            <span>Projects</span>
+          </div>
+
+          <div class="stat">
+            <strong data-target="8500" data-format="compact">0</strong>
+            <span>Followers</span>
+          </div>
+
+          <div class="stat">
+            <strong data-target="128">0</strong>
+            <span>Posts</span>
+          </div>
+
+        </div>
+
+        <div class="tabs" role="tablist">
+
+          <button
+            class="tab active"
+            type="button"
+            data-tab="profile">
+            Profile
+          </button>
+
+          <button
+            class="tab"
+            type="button"
+            data-tab="skills">
+            Skills
+          </button>
+
+          <button
+            class="tab"
+            type="button"
+            data-tab="contact">
+            Contact
+          </button>
+
+        </div>
+
+        <div class="tab-content">
+
+          <section class="panel active" id="profile">
+
+            <p class="description">
+              I create modern websites, interactive components,
+              educational projects and creative coding experiments.
+            </p>
+
+            <div class="highlights">
+
+              <div>
+                <span>🚀</span>
+                <p>
+                  <strong>Creative projects</strong>
+                  Modern web experiments and UI components.
+                </p>
+              </div>
+
+              <div>
+                <span>🎓</span>
+                <p>
+                  <strong>Education</strong>
+                  Programming and software testing content.
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
+          <section class="panel" id="skills">
+
+            <div class="skills">
+
+              <div class="skill">
+                <div class="skill-header">
+                  <span>HTML</span>
+                  <span>95%</span>
+                </div>
+
+                <div class="skill-track">
+                  <span style="--progress: 95%"></span>
+                </div>
+              </div>
+
+              <div class="skill">
+                <div class="skill-header">
+                  <span>CSS</span>
+                  <span>90%</span>
+                </div>
+
+                <div class="skill-track">
+                  <span style="--progress: 90%"></span>
+                </div>
+              </div>
+
+              <div class="skill">
+                <div class="skill-header">
+                  <span>JavaScript</span>
+                  <span>82%</span>
+                </div>
+
+                <div class="skill-track">
+                  <span style="--progress: 82%"></span>
+                </div>
+              </div>
+
+              <div class="skill">
+                <div class="skill-header">
+                  <span>Python</span>
+                  <span>85%</span>
+                </div>
+
+                <div class="skill-track">
+                  <span style="--progress: 85%"></span>
+                </div>
+              </div>
+
+            </div>
+
+          </section>
+
+          <section class="panel" id="contact">
+
+            <div class="contact-list">
+
+              <a href="mailto:hello@example.com">
+                <span>✉️</span>
+                <div>
+                  <strong>Email</strong>
+                  <small>hello@example.com</small>
+                </div>
+              </a>
+
+              <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                <span>💻</span>
+                <div>
+                  <strong>GitHub</strong>
+                  <small>View projects</small>
+                </div>
+              </a>
+
+              <a href="https://stefantusjak.cz" target="_blank" rel="noopener noreferrer">
+                <span>🌍</span>
+                <div>
+                  <strong>Website</strong>
+                  <small>stefantusjak.cz</small>
+                </div>
+              </a>
+
+            </div>
+
+          </section>
+
+        </div>
+
+        <div class="actions">
+
+          <button class="follow-button" id="followButton" type="button">
+            <span class="follow-icon">＋</span>
+            <span class="follow-text">Follow</span>
+          </button>
+
+          <button class="message-button" type="button">
+            Message
+          </button>
+
+        </div>
+
+      </article>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
