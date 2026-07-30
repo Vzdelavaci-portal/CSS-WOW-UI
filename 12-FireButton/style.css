@@ -1,0 +1,678 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #050202;
+    --panel: #170501;
+
+    --yellow: #ffd84f;
+    --orange: #ff9800;
+    --deep-orange: #ff4d00;
+    --red: #df250d;
+    --dark-red: #791407;
+
+    --text: #fff8ef;
+    --muted: #c3a79d;
+}
+
+html {
+    color-scheme: dark;
+}
+
+body {
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 75%,
+            rgba(255, 87, 34, 0.2),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(130, 10, 0, 0.13),
+            transparent 42%
+        ),
+        linear-gradient(
+            180deg,
+            var(--background),
+            var(--panel)
+        );
+
+    color: var(--text);
+}
+
+button {
+    font: inherit;
+}
+
+.page {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 42px 20px 55px;
+
+    text-align: center;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+    padding: 8px 19px;
+
+    border: 1px solid rgba(255, 166, 0, 0.42);
+    border-radius: 999px;
+
+    background: rgba(43, 10, 2, 0.68);
+    color: var(--yellow);
+
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+
+    box-shadow:
+        0 0 24px rgba(255, 87, 34, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+h1 {
+    margin-bottom: 18px;
+
+    font-size: clamp(48px, 8vw, 78px);
+    line-height: 1;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff47e 0%,
+            #ffbb18 35%,
+            #ff7800 66%,
+            #ff3a12 100%
+        );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter:
+        drop-shadow(
+            0 0 16px rgba(255, 117, 0, 0.24)
+        );
+}
+
+.intro {
+    max-width: 690px;
+    margin-bottom: 50px;
+
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.fire-scene {
+    position: relative;
+
+    width: min(650px, 100%);
+    min-height: 370px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fire-wrapper {
+    position: relative;
+
+    width: 390px;
+    height: 310px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    isolation: isolate;
+}
+
+.ambient-glow {
+    position: absolute;
+
+    width: 470px;
+    height: 340px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255, 223, 90, 0.18) 0%,
+            rgba(255, 121, 0, 0.2) 28%,
+            rgba(255, 48, 0, 0.12) 52%,
+            transparent 74%
+        );
+
+    filter: blur(35px);
+
+    animation:
+        ambientPulse 2.4s ease-in-out infinite alternate;
+
+    pointer-events: none;
+}
+
+.fire-canvas {
+    position: absolute;
+    z-index: 2;
+
+    left: 50%;
+    bottom: 58px;
+
+    width: 390px;
+    height: 270px;
+
+    transform: translateX(-50%);
+
+    pointer-events: none;
+
+    filter:
+        saturate(1.15)
+        contrast(1.08)
+        drop-shadow(
+            0 0 16px rgba(255, 94, 0, 0.75)
+        )
+        drop-shadow(
+            0 0 40px rgba(255, 42, 0, 0.36)
+        );
+}
+
+.fire-button {
+    position: relative;
+    z-index: 10;
+
+    width: 285px;
+    min-height: 88px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 245, 194, 0.68);
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffc83d 0%,
+            #ff9500 24%,
+            #ff5425 60%,
+            #c82016 100%
+        );
+
+    color: white;
+
+    cursor: pointer;
+
+    box-shadow:
+        inset 0 3px 0 rgba(255, 255, 255, 0.42),
+        inset 0 -8px 13px rgba(103, 9, 0, 0.42),
+        0 12px 0 var(--dark-red),
+        0 22px 34px rgba(0, 0, 0, 0.52),
+        0 0 48px rgba(255, 87, 34, 0.46);
+
+    transform: translateY(0);
+
+    transition:
+        transform 0.16s ease,
+        filter 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.fire-button::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(255, 255, 255, 0.24),
+            transparent 52%
+        ),
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.12),
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+.button-reflection {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at 20% 0%,
+            rgba(255, 255, 210, 0.42),
+            transparent 31%
+        ),
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(255, 222, 83, 0.36),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 82% 0%,
+            rgba(255, 153, 0, 0.3),
+            transparent 31%
+        );
+
+    opacity: 0.7;
+
+    animation:
+        fireReflection 1.05s ease-in-out infinite alternate;
+
+    pointer-events: none;
+}
+
+.button-shine {
+    position: absolute;
+
+    top: -100%;
+    left: -48%;
+
+    width: 38%;
+    height: 300%;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(255, 255, 255, 0.58),
+            transparent
+        );
+
+    transform: rotate(24deg);
+
+    opacity: 0;
+
+    transition:
+        left 0.65s ease,
+        opacity 0.25s ease;
+
+    pointer-events: none;
+}
+
+.button-content {
+    position: relative;
+    z-index: 3;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+
+    text-shadow:
+        0 2px 0 rgba(93, 9, 0, 0.6),
+        0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+.button-icon {
+    font-size: 25px;
+
+    transition: transform 0.25s ease;
+}
+
+.fire-wrapper:hover .fire-button {
+    filter:
+        brightness(1.08)
+        saturate(1.12);
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        inset 0 3px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -8px 13px rgba(103, 9, 0, 0.36),
+        0 17px 0 var(--dark-red),
+        0 30px 44px rgba(0, 0, 0, 0.54),
+        0 0 78px rgba(255, 87, 34, 0.68);
+}
+
+.fire-wrapper:hover .button-shine {
+    left: 125%;
+    opacity: 1;
+}
+
+.fire-wrapper:hover .button-icon {
+    transform:
+        scale(1.18)
+        rotate(-8deg);
+}
+
+.fire-button:active {
+    transform: translateY(8px) !important;
+
+    box-shadow:
+        inset 0 5px 13px rgba(100, 8, 0, 0.38),
+        inset 0 -2px 0 rgba(255, 255, 255, 0.18),
+        0 4px 0 var(--dark-red),
+        0 10px 20px rgba(0, 0, 0, 0.5),
+        0 0 38px rgba(255, 87, 34, 0.5);
+}
+
+.floor-glow {
+    position: absolute;
+
+    bottom: 34px;
+
+    width: 400px;
+    height: 58px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255, 111, 0, 0.54),
+            rgba(255, 61, 0, 0.22) 44%,
+            transparent 74%
+        );
+
+    filter: blur(14px);
+
+    animation:
+        floorPulse 1.8s ease-in-out infinite alternate;
+
+    pointer-events: none;
+}
+
+.effect-layer {
+    position: absolute;
+    z-index: 30;
+
+    inset: 0;
+
+    overflow: visible;
+
+    pointer-events: none;
+}
+
+.spark {
+    position: absolute;
+
+    left: 50%;
+    top: 72%;
+
+    width: var(--size);
+    height: var(--size);
+
+    border-radius: 50%;
+
+    background: var(--color);
+
+    box-shadow:
+        0 0 8px var(--color),
+        0 0 18px rgba(255, 87, 34, 0.95);
+
+    animation:
+        sparkExplosion var(--duration) ease-out forwards;
+}
+
+.flash {
+    position: absolute;
+
+    left: 50%;
+    top: 72%;
+
+    width: 330px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255, 255, 225, 0.9),
+            rgba(255, 177, 34, 0.4) 30%,
+            transparent 72%
+        );
+
+    transform: translate(-50%, -50%);
+
+    animation:
+        flashBurst 0.42s ease-out forwards;
+}
+
+.smoke {
+    position: absolute;
+
+    left: var(--left);
+    top: 65%;
+
+    width: var(--size);
+    height: var(--size);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(185, 175, 168, 0.26),
+            rgba(70, 62, 58, 0.12) 48%,
+            transparent 72%
+        );
+
+    filter: blur(7px);
+
+    animation:
+        smokeRise var(--duration) ease-out forwards;
+}
+
+.fire-wrapper.igniting {
+    animation:
+        wrapperShake 0.36s ease-out;
+}
+
+.hint {
+    margin-top: 5px;
+
+    color: #82675e;
+    font-size: 14px;
+    letter-spacing: 0.4px;
+}
+
+@keyframes ambientPulse {
+    from {
+        transform: scale(0.94);
+        opacity: 0.7;
+    }
+
+    to {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+
+@keyframes floorPulse {
+    from {
+        transform: scaleX(0.9);
+        opacity: 0.68;
+    }
+
+    to {
+        transform: scaleX(1.08);
+        opacity: 1;
+    }
+}
+
+@keyframes fireReflection {
+    from {
+        opacity: 0.48;
+        transform: translateX(-3px);
+    }
+
+    to {
+        opacity: 0.82;
+        transform: translateX(4px);
+    }
+}
+
+@keyframes sparkExplosion {
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(var(--angle))
+            translateX(0)
+            scale(1);
+
+        opacity: 1;
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(var(--angle))
+            translateX(var(--distance))
+            scale(0);
+
+        opacity: 0;
+    }
+}
+
+@keyframes flashBurst {
+    0% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.55);
+
+        opacity: 0;
+    }
+
+    35% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.45);
+
+        opacity: 0;
+    }
+}
+
+@keyframes smokeRise {
+    0% {
+        transform:
+            translate(-50%, 0)
+            scale(0.4);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.35;
+    }
+
+    100% {
+        transform:
+            translate(
+                calc(-50% + var(--drift)),
+                -150px
+            )
+            scale(1.7);
+
+        opacity: 0;
+    }
+}
+
+@keyframes wrapperShake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-4px);
+    }
+
+    40% {
+        transform: translateX(5px);
+    }
+
+    60% {
+        transform: translateX(-3px);
+    }
+
+    80% {
+        transform: translateX(2px);
+    }
+}
+
+@media (max-width: 580px) {
+    .intro {
+        margin-bottom: 38px;
+
+        font-size: 16px;
+    }
+
+    .fire-scene {
+        min-height: 340px;
+    }
+
+    .fire-wrapper {
+        width: 330px;
+    }
+
+    .fire-canvas {
+        width: 330px;
+        height: 245px;
+    }
+
+    .fire-button {
+        width: 245px;
+        min-height: 82px;
+    }
+
+    .button-content {
+        font-size: 18px;
+    }
+
+    .floor-glow {
+        width: 310px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
