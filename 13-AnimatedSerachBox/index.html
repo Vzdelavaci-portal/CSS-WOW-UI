@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Animated Search Box</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="page">
+
+        <span class="badge">
+            CSS WOW UI #13
+        </span>
+
+        <h1>Animated Search Box</h1>
+
+        <p class="intro">
+            A modern expandable search component with
+            smooth animations and live suggestions.
+        </p>
+
+        <section class="search-demo">
+
+            <div class="search-box" id="searchBox">
+
+                <button
+                    class="search-toggle"
+                    id="searchToggle"
+                    type="button"
+                    aria-label="Open search"
+                >
+                    <span class="search-icon"></span>
+                </button>
+
+                <div class="search-field">
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search components..."
+                        autocomplete="off"
+                    >
+
+                    <button
+                        class="clear-button"
+                        id="clearButton"
+                        type="button"
+                        aria-label="Clear search"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div
+                class="suggestions"
+                id="suggestions"
+            ></div>
+
+        </section>
+
+        <p class="hint">
+            Click the search icon and start typing.
+        </p>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
