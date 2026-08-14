@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>OTP Input</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="page">
+
+        <span class="badge">
+            CSS WOW UI #14
+        </span>
+
+        <h1>OTP Input</h1>
+
+        <p class="intro">
+            A modern verification code input with automatic focus,
+            paste support and smooth validation animations.
+        </p>
+
+        <section class="otp-card">
+
+            <div class="icon-wrapper">
+                <span>🔐</span>
+            </div>
+
+            <h2>Verify your account</h2>
+
+            <p class="description">
+                Enter the 6-digit verification code sent to your device.
+            </p>
+
+            <div
+                class="otp-group"
+                id="otpGroup"
+            >
+
+                <input
+                    class="otp-input"
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="Digit 1"
+                    autocomplete="one-time-code"
+                >
+
+                <input
+                    class="otp-input"
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="Digit 2"
+                >
+
+                <input
+                    class="otp-input"
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="Digit 3"
+                >
+
+                <input
+                    class="otp-input"
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="Digit 4"
+                >
+
+                <input
+                    class="otp-input"
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="Digit 5"
+                >
+
+                <input
+                    class="otp-input"
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="1"
+                    aria-label="Digit 6"
+                >
+
+            </div>
+
+            <p
+                class="status-message"
+                id="statusMessage"
+            >
+                Enter all six digits.
+            </p>
+
+            <button
+                class="verify-button"
+                id="verifyButton"
+                type="button"
+                disabled
+            >
+                Verify Code
+            </button>
+
+            <div class="resend">
+                <span>Didn't receive the code?</span>
+
+                <button
+                    id="resendButton"
+                    type="button"
+                >
+                    Resend
+                </button>
+            </div>
+
+        </section>
+
+        <p class="hint">
+            Try pasting a complete 6-digit code.
+        </p>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
